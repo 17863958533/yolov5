@@ -5,7 +5,7 @@ import os.path
 from os import listdir, getcwd
 from os.path import join
 sets = ['train', 'test','val']
-classes = ['person']
+classes = ['bolthole']  #这里bolthole指的是志华师兄的螺栓孔
 def convert(size, box):
     dw = 1. / size[0]
     dh = 1. / size[1]
@@ -46,6 +46,6 @@ for image_set in sets:
     image_ids = open('datasets/mydata/%s.txt' % (image_set)).read().strip().split()
     list_file = open('datasets/mydata/%s.txt' % (image_set), 'w')
     for image_id in image_ids:
-        list_file.write('datasets/mydata/images/%s.jpg\n' % (image_id))
+        list_file.write('datasets/mydata/images/%s.png\n' % (image_id))
         convert_annotation(image_id)
     list_file.close()
